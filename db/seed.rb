@@ -1,4 +1,5 @@
 require('pp')
+require('pry-byebug')
 require_relative('../models/author.rb')
 
 
@@ -11,8 +12,8 @@ author1 = Author.new(
   'description' => 'author1 description'
 )
 
-author1.save()
-pp Author.all
-pp '==============='
-author1.delete
-pp Author.all
+author1.save
+
+
+binding pry
+nil
