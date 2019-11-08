@@ -28,6 +28,11 @@ class Author
     SqlRunner.run(sql, values)
   end
 
+  def pretty_name
+    pretty_name = "#{@first_name} #{@last_name}"
+    return pretty_name
+  end
+
   def self.find_by_id(id)
     sql = 'SELECT * FROM authors WHERE id = $1'
     values = [id]
