@@ -14,3 +14,5 @@ author1 = Author.new(
 author1.save()
 pp Author.all
 pp '==============='
+author1.delete
+pp Author.all
