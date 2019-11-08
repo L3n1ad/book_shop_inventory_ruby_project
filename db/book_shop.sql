@@ -7,6 +7,7 @@ CREATE TABLE books(
   id SERIAL8 PRIMARY KEY,
   title VARCHAR(255),
   description VARCHAR(255),
+  genre VARCHAR(255),
   year INT2
 );
 
