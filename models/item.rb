@@ -38,6 +38,14 @@ class Item
     SqlRunner.run(sql, values)
   end
 
+  def check_quantity_low
+   if @quantity < 5
+     return true
+   else
+     return false
+   end
+  end
+
   def self.find_by_book_id(id)
     sql = 'SELECT * FROM inventory WHERE book_id = $1'
     values = [id]
