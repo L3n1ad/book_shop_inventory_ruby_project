@@ -8,7 +8,7 @@ class SqlRunner
       db.prepare('query', sql)
       result = db.exec_prepared('query', values)
     ensure
-      pg.close() if db != nil
+      db.close() if db != nil
     end
     return result
   end
