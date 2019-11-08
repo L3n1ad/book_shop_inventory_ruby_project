@@ -36,7 +36,6 @@ class Publication
     SqlRunner.run(sql, values)
   end
 
-
   def self.find_by_id(id)
     sql = 'SELECT * FROM publications WHERE id = $1'
     values = [id]

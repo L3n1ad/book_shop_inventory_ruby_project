@@ -43,6 +43,17 @@ class Author
     return pretty_name
   end
 
+
+  def books
+    sql = 'SELECT books.* FROM books
+          INNER JOIN publications
+          ON publications.book_id = books.id
+          WHERE publications.author_id = $1'
+    values = [@id]
+    result = SqlRunner.run(sql, values)
+    return result.map {|book| Book.new(book)}
+  end
+
   def self.find_by_id(id)
     sql = 'SELECT * FROM authors WHERE id = $1'
     values = [id]
