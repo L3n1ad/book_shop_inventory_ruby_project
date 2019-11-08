@@ -26,6 +26,15 @@ book1 = Book.new(
 
 book1.save
 
+book2 = Book.new(
+  'title' => 'book2',
+  'genre' => 'Drama',
+  'description' => 'I am book2',
+  'year' => 1900
+)
+
+book2.save
+
 publication1 = Publication.new(
   'book_id' => book1.id,
   'author_id' => author1.id

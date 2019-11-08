@@ -22,6 +22,16 @@ class Author
     @id = result['id']
   end
 
+  def update()
+    sql = 'UPDATE authors
+          SET (first_name, last_name, date_of_birt, description)
+          =
+          ($1, $2, $3, $4)
+          WHERE id = $5'
+    values = [@first_name, @last_name, @date_of_birt, @description, @id]
+    SqlRunner.run(sql, values)
+  end
+
   def delete()
     sql = 'DELETE FROM authors WHERE id = $1'
     values = [@id]

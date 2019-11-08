@@ -20,6 +20,16 @@ class Publication
     @id = result['id']
   end
 
+  def update()
+    sql = 'UPDATE publications
+          SET (book_id, author_id)
+          =
+          ($1, $2)
+          WHERE id = $3'
+    values = [@book_id, @author_id, @id]
+    SqlRunner.run(sql, values)
+  end
+
   def delete()
     sql = 'DELETE FROM publications WHERE id = $1'
     values = [@id]
