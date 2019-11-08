@@ -2,8 +2,9 @@ require('pp')
 require('pry-byebug')
 require_relative('../models/author.rb')
 require_relative('../models/book.rb')
+require_relative('../models/publication.rb')
 
-
+Publication.delete_all()
 Author.delete_all()
 Book.delete_all()
 
@@ -24,6 +25,13 @@ book1 = Book.new(
 )
 
 book1.save
+
+publication1 = Publication.new(
+  'book_id' => book1.id,
+  'author_id' => author1.id
+)
+
+publication1.save
 
 
 binding pry
