@@ -1,0 +1,24 @@
+<h1>This is books new page</h1>
+
+<form class="" action="/authors" method="post">
+  <label for="">First Name</label>
+  <input type="text" name="first_name">
+
+  <label for="">Last Name</label>
+  <input type="text" name="last_name">
+
+  <label for="">Date of Birth</label>
+  <input type="num" name="date_of_birt" placeholder="ddmmyyyy">
+
+  <label for="">Description</label>
+  <textarea name="description" rows="8" cols="80"></textarea>
+
+  <label for="">Book</label>
+  <select name="book_id">
+    <% for book in @books %>
+    <option value="<%= book.id %>"><%= book.title %></option>
+    <% end %>
+  </select>
+
+  <input type="submit" value="Add Author">
+</form>
