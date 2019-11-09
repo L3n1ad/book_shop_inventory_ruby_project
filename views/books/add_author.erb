@@ -3,7 +3,9 @@
 <form class="" action="/publication/<%= @book.id %>" method="post">
   <select class="" name="author_id">
     <% for author in @authors %>
-      <option value="<%= author.id %>"><%= author.pretty_name %></option>
+      <% if @book_authors_ids.include?(author.id) == false %>
+        <option value="<%= author.id %>"><%= author.pretty_name %></option>
+      <% end %>
     <% end %>
   </select>
   <input type="submit" name="" value="Add Author">

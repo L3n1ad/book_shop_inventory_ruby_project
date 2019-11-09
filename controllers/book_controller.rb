@@ -65,6 +65,7 @@ end
 
 get '/publication/:book_id/add_author' do
   @book = Book.find_by_id(params[:book_id])
+  @book_authors_ids = @book.authors_id
   @authors = Author.all
   erb(:"books/add_author")
 end
