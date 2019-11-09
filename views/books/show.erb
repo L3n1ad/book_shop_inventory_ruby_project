@@ -8,6 +8,17 @@
   <li><%= @book.year %></li>
 </ul>
 
+<p>Authors:</p>
+  <ul>
+    <% if @authors.length != 0 %>
+      <% for author in @authors %>
+        <li><%= author.pretty_name %></li>
+      <% end %>
+    <% else %>
+      <p>No Authors for this book</p>
+    <% end %>
+  </ul>
+
 <a href="/books/<%= @book.id %>/edit">Edit Book</a>
 <form class="" action="/books/<%= @book.id %>/delete" method="post">
   <input type="submit" name="" value="Delete Book">

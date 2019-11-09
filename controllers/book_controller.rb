@@ -1,6 +1,9 @@
 require('sinatra')
 require('sinatra/contrib/all')
+require('pry-byebug')
 require_relative('../models/book.rb')
+require_relative('../models/author.rb')
+require_relative('../models/publication.rb')
 also_reload('../models/*')
 
 # INDEX route
@@ -28,6 +31,7 @@ end
 
 get '/books/:id' do
   @book = Book.find_by_id(params[:id])
+  @authors = @book.authors
   erb(:"books/show")
 end
 
