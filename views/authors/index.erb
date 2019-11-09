@@ -1,0 +1,10 @@
+<h1>This is the authors index page</h1>
+
+
+<% for author in @authors %>
+  <ul>
+    <li><a href="/authors/<%= author.id %>"><%= author.pretty_name %></a></li>
+  </ul>
+<% end %>
+
+<a href="/authors/new">Create new author NOT WORKING</a>
