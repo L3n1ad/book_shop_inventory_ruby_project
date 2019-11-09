@@ -61,10 +61,18 @@ post '/books/:id/delete' do
   redirect to '/books'
 end
 
-# ADD AUTHOR route
+# ADD NEW AUTHOR FORM route
 
-get '/books/:id/add_author' do
-  @book = Book.find_by_id(params[:id])
+get '/publication/:book_id/add_author' do
+  @book = Book.find_by_id(params[:book_id])
   @authors = Author.all
   erb(:"books/add_author")
+end
+
+# CREATE NEW AUTHOR route
+
+post '/publication/:book_id' do
+  publication = Publication.new(params)
+  publication.save
+  redirect to '/books'
 end
