@@ -15,9 +15,9 @@ end
 
 # NEW route
 
-get '/books/new' do
+get '/authors/new' do
   @books = Book.all
-  erb(:"books/new")
+  erb(:"authors/new")
 end
 
 # # CREATE route
