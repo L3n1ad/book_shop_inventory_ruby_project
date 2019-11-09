@@ -29,14 +29,14 @@ post '/authors' do
   publication.save
   redirect to "/authors"
 end
-#
-# # SHOW route
-#
-# get '/books/:id' do
-#   @book = Book.find_by_id(params[:id])
-#   @authors = @book.authors
-#   erb(:"books/show")
-# end
+
+# SHOW route
+
+get '/authors/:id' do
+  @author = Author.find_by_id(params[:id])
+  @books = @author.books
+  erb(:"authors/show")
+end
 #
 # # EDIT route
 #
