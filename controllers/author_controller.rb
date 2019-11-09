@@ -20,15 +20,15 @@ get '/authors/new' do
   erb(:"authors/new")
 end
 
-# # CREATE route
-#
-# post '/books' do
-#   book = Book.new(params)
-#   book.save
-#   publication = Publication.new('author_id' => params[:author_id], 'book_id' => book.id)
-#   publication.save
-#   redirect to "/books"
-# end
+# CREATE route
+
+post '/authors' do
+  author = Author.new(params)
+  author.save
+  publication = Publication.new('book_id' => params[:book_id], 'author_id' => author.id)
+  publication.save
+  redirect to "/authors"
+end
 #
 # # SHOW route
 #
