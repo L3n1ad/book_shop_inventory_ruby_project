@@ -31,6 +31,21 @@ get '/books/:id' do
   erb(:"books/show")
 end
 
+# EDIT route
+
+get '/books/:id/edit' do
+  @book = Book.find_by_id(params[:id])
+  erb(:"books/edit")
+end
+
+# UPDATE route
+
+post '/books/:id' do
+  book = Book.new(params)
+  book.update
+  redirect to '/books'
+end
+
 # DELETE route
 
 post '/books/:id/delete' do
