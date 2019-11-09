@@ -10,6 +10,20 @@ get '/books' do
   erb(:"books/index")
 end
 
+# NEW route
+
+get '/books/new' do
+  erb(:"books/new")
+end
+
+# CREATE route
+
+post '/books' do
+  book = Book.new(params)
+  book.save
+  redirect to "/books"
+end
+
 # SHOW route
 
 get '/books/:id' do
