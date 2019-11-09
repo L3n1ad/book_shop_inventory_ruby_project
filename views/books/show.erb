@@ -1,0 +1,9 @@
+<h1>This is a show page for <%= @book.title %></h1>
+
+
+<ul>
+  <li><a href="/books/<%= @book.id %>"><%= @book.title %></a></li>
+  <li><%= @book.genre %></li>
+  <li><%= @book.description %></li>
+  <li><%= @book.year %></li>
+</ul>

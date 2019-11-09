@@ -1,0 +1,9 @@
+<h1>This is books index page</h1>
+
+
+<% for book in @books %>
+  <ul>
+    <li><a href="/books/<%= book.id %>"><%= book.title %></a></li>
+    <li><%= book.year %></li>
+  </ul>
+<% end %>
