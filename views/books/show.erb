@@ -2,17 +2,17 @@
 
 
 <ul>
-  <li><a href="/books/<%= @book.id %>"><%= @book.title %></a></li>
-  <li><%= @book.genre %></li>
-  <li><%= @book.description %></li>
-  <li><%= @book.year %></li>
+  <li>Book title: <%= @book.title %></li>
+  <li>Book genre: <%= @book.genre %></li>
+  <li>Book description: <%= @book.description %></li>
+  <li>Year of publish: <%= @book.year %></li>
 </ul>
 
 <p>Authors:</p>
   <ul>
     <% if @authors.length != 0 %>
       <% for author in @authors %>
-        <li><%= author.pretty_name %></li>
+        <li><a href="/authors/<%= author.id %>">Name: <%= author.pretty_name %></a></li>
       <% end %>
     <% else %>
       <p>No Authors for this book</p>
