@@ -7,3 +7,8 @@
   <li><%= @book.description %></li>
   <li><%= @book.year %></li>
 </ul>
+
+<a href="/books/<%= @book.id %>/delete">Delete Book</a>
+<form class="" action="/books/<%= @book.id %>/delete" method="post">
+  <input type="submit" name="" value="Delete Book">
+</form>

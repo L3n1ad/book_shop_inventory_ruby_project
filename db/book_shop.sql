@@ -21,7 +21,7 @@ CREATE TABLE authors(
 
 CREATE TABLE inventory(
   id SERIAL8 PRIMARY KEY,
-  book_id INT8 REFERENCES books(id),
+  book_id INT8 REFERENCES books(id) ON DELETE CASCADE,
   quantity INT4,
   buying_cost NUMERIC(6, 2),
   selling_price NUMERIC(6, 2)
@@ -29,6 +29,6 @@ CREATE TABLE inventory(
 
 CREATE TABLE publications(
     id SERIAL8 PRIMARY KEY,
-    author_id INT8 REFERENCES authors(id),
-    book_id INT8 REFERENCES books(id)
+    author_id INT8 REFERENCES authors(id) ON DELETE CASCADE,
+    book_id INT8 REFERENCES books(id) ON DELETE CASCADE
 );
