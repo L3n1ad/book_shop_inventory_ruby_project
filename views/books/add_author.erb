@@ -1,0 +1,9 @@
+<h1>Add author to <%= @book.title %></h1>
+
+<form class="" action="/publication" method="post">
+  <select class="" name="author_id">
+    <% for author in @authors %>
+      <option value="<%= author.id %>"><%= author.pretty_name %></option>
+    <% end %>
+  </select>
+</form>

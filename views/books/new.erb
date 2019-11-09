@@ -13,5 +13,12 @@
   <label for="">year</label>
   <input type="number" name="year">
 
-  <input type="submit" name="" value="Create Book">
+  <label for="">author</label>
+  <select name="author_id">
+    <% for author in @authors %>
+    <option value="<%= author.id %>"><%= author.pretty_name %></option>
+    <% end %>
+  </select>
+
+  <input type="submit" value="Create Book">
 </form>

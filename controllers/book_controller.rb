@@ -16,6 +16,7 @@ end
 # NEW route
 
 get '/books/new' do
+  @authors = Author.all
   erb(:"books/new")
 end
 
@@ -24,6 +25,8 @@ end
 post '/books' do
   book = Book.new(params)
   book.save
+  publication = Publication.new('author_id' => params[:author_id], 'book_id' => book.id)
+  publication.save
   redirect to "/books"
 end
 
@@ -56,4 +59,12 @@ post '/books/:id/delete' do
   book = Book.find_by_id(params[:id])
   book.delete
   redirect to '/books'
+end
+
+# ADD AUTHOR route
+
+get '/books/:id/add_author' do
+  @book = Book.find_by_id(params[:id])
+  @authors = Author.all
+  erb(:"books/add_author")
 end
