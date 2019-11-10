@@ -4,6 +4,7 @@ require('pry-byebug')
 require_relative('../models/book.rb')
 require_relative('../models/author.rb')
 require_relative('../models/publication.rb')
+require_relative('../models/genre.rb')
 also_reload('../models/*')
 
 # INDEX route
@@ -17,6 +18,7 @@ end
 
 get '/books/new' do
   @authors = Author.all
+  @genres = Genre.all
   erb(:"books/new")
 end
 
