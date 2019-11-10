@@ -1,0 +1,12 @@
+<h1>Add book to <%= @author.pretty_name %></h1>
+
+<form class="" action="/publications/<%= @author.id %>" method="post">
+  <select class="" name="book_id">
+    <% for book in @books %>
+      <% if @author_books_ids.include?(book.id) == false %>
+        <option value="<%= book.id %>"><%= book.title %></option>
+      <% end %>
+    <% end %>
+  </select>
+  <input type="submit" name="" value="Add Book">
+</form>
