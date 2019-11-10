@@ -24,3 +24,20 @@ post '/publications/:author_id' do
   publication.save
   redirect to '/authors'
 end
+
+# NEW AUTHOR FOR BOOKS route
+
+get '/publication/:book_id/add_author' do
+  @book = Book.find_by_id(params[:book_id])
+  @book_authors_ids = @book.authors_id
+  @authors = Author.all
+  erb(:"books/add_author")
+end
+
+# CREATE NEW AUTHOR FOR BOOKS route
+
+post '/publication/:book_id' do
+  publication = Publication.new(params)
+  publication.save
+  redirect to '/books'
+end
