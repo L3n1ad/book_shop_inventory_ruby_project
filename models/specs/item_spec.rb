@@ -19,9 +19,15 @@ class ItemTest < MiniTest::Test
     result = @item2.check_quantity_low
     assert_equal(false, result)
   end
+
   def test_check_quantity_low__over_limit
     result = @item3.check_quantity_low
     assert_equal(false, result)
+  end
+
+  def test_markup
+    result = @item2.markup
+    assert_equal(3.25, result)
   end
 
 end
