@@ -16,7 +16,7 @@ CREATE TABLE authors(
   first_name VARCHAR(255),
   last_name VARCHAR(255),
   description VARCHAR(255),
-  date_of_birt VARCHAR(255)
+  date_of_birth VARCHAR(255)
 );
 
 CREATE TABLE inventory(

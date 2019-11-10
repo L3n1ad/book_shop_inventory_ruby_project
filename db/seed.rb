@@ -10,10 +10,10 @@ Item.delete_all()
 Author.delete_all()
 Book.delete_all()
 
-author1 = Author.new('first_name' => 'John','last_name' => 'author1','date_of_birt' => 1991,'description' => 'author1 description')
-author2 = Author.new('first_name' => 'Mark','last_name' => 'author2','date_of_birt' => 2000,'description' => 'author2 description')
-author3 = Author.new('first_name' => 'Clarie','last_name' => 'author3','date_of_birt' => 2010,'description' => 'author3 description')
-author4 = Author.new('first_name' => 'Mate','last_name' => 'author4','date_of_birt' => 1700,'description' => 'author4 description')
+author1 = Author.new('first_name' => 'John','last_name' => 'author1','date_of_birth' => 1991,'description' => 'author1 description')
+author2 = Author.new('first_name' => 'Mark','last_name' => 'author2','date_of_birth' => 2000,'description' => 'author2 description')
+author3 = Author.new('first_name' => 'Clarie','last_name' => 'author3','date_of_birth' => 2010,'description' => 'author3 description')
+author4 = Author.new('first_name' => 'Mate','last_name' => 'author4','date_of_birth' => 1700,'description' => 'author4 description')
 
 author1.save
 author2.save

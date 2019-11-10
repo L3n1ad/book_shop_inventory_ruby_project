@@ -3,7 +3,7 @@
 
 <ul>
   <li>Author Name: <%= @author.pretty_name %></li>
-  <li>Date of Birt: <%= @author.date_of_birt %></li>
+  <li>Date of Birth: <%= @author.date_of_birth %></li>
   <li>Description: <%= @author.description %></li>
 </ul>
 
@@ -21,8 +21,8 @@
     <% end %>
 
 
-<a href="/books/<%= @author.id %>/edit">Edit Author</a>
-<a href="/publication/<%= @author.id %>/add_author">Add Book</a>
-<form class="" action="/books/<%= @author.id %>/delete" method="post">
+<a href="/authors/<%= @author.id %>/edit">Edit Author</a>
+<a href="/publications/<%= @author.id %>/add_book">Add Book</a>
+<form class="" action="/authors/<%= @author.id %>/delete" method="post">
   <input type="submit" name="" value="Delete Author">
 </form>
