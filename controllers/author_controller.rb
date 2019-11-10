@@ -37,43 +37,26 @@ get '/authors/:id' do
   @books = @author.books
   erb(:"authors/show")
 end
-#
-# # EDIT route
-#
-# get '/books/:id/edit' do
-#   @book = Book.find_by_id(params[:id])
-#   erb(:"books/edit")
-# end
-#
-# # UPDATE route
-#
-# post '/books/:id' do
-#   book = Book.new(params)
-#   book.update
-#   redirect to '/books'
-# end
-#
-# # DELETE route
-#
-# post '/books/:id/delete' do
-#   book = Book.find_by_id(params[:id])
-#   book.delete
-#   redirect to '/books'
-# end
-#
-# # ADD NEW AUTHOR FORM route
-#
-# get '/publication/:book_id/add_author' do
-#   @book = Book.find_by_id(params[:book_id])
-#   @book_authors_ids = @book.authors_id
-#   @authors = Author.all
-#   erb(:"books/add_author")
-# end
-#
-# # CREATE NEW AUTHOR route
-#
-# post '/publication/:book_id' do
-#   publication = Publication.new(params)
-#   publication.save
-#   redirect to '/books'
-# end
+
+# EDIT route
+
+get '/authors/:id/edit' do
+  @author = Author.find_by_id(params[:id])
+  erb(:"authors/edit")
+end
+
+# UPDATE route
+
+post '/authors/:id' do
+  author = Author.new(params)
+  author.update
+  redirect to '/authors'
+end
+
+# DELETE route
+
+post '/authors/:id/delete' do
+  author = Author.find_by_id(params[:id])
+  author.delete
+  redirect to '/authors'
+end
