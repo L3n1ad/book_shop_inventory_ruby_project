@@ -20,10 +20,10 @@ author2.save
 author3.save
 author4.save
 
-book1 = Book.new('title' => 'book1','genre' => 'Comedy','description' => 'I am book1','year' => 2000)
-book2 = Book.new('title' => 'book2','genre' => 'Drama','description' => 'I am book2','year' => 1990)
-book3 = Book.new('title' => 'book3','genre' => 'Action','description' => 'I am book3','year' => 1800)
-book4 = Book.new('title' => 'book4','genre' => 'Action','description' => 'I am book4','year' => 1700)
+book1 = Book.new('title' => 'book1','genre' => 'Romance','description' => 'I am book1','year' => 2000)
+book2 = Book.new('title' => 'book2','genre' => 'Crime','description' => 'I am book2','year' => 1990)
+book3 = Book.new('title' => 'book3','genre' => 'Horror','description' => 'I am book3','year' => 1800)
+book4 = Book.new('title' => 'book4','genre' => 'Poetry','description' => 'I am book4','year' => 1700)
 
 book1.save
 book2.save
