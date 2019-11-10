@@ -1,0 +1,17 @@
+<h1>This is authors edit page</h1>
+
+<form class="" action="/authors/<%= @author.id %>" method="post">
+  <label for="">Author first name</label>
+  <input type="text" value="<%= @author.first_name %> " name="first_name">
+
+  <label for="">Author last name</label>
+  <input type="text" value="<%= @author.last_name %> " name="last_name">
+
+  <label for="">Date of birth</label>
+  <input type="number" value="<%= @author.date_of_birth.to_i %> " name="date_of_birth">
+
+  <label for="">Description</label>
+  <input type="text" value="<%= @author.description %>" name="description">
+
+  <input type="submit" name="" value="Update Author">
+</form>
