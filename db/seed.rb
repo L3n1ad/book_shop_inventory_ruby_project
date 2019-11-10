@@ -40,8 +40,8 @@ publication2.save
 publication3.save
 publication4.save
 
-item1 = Item.new('book_id' => book1.id, 'quantity' => 1, 'buying_cost' => 4.50, 'selling_price' => 7.75)
-item2 = Item.new('book_id' => book2.id, 'quantity' => 5, 'buying_cost' => 4.50, 'selling_price' => 7.75)
+item1 = Item.new('book_id' => book1.id, 'quantity' => 1, 'buying_cost' => 4.509, 'selling_price' => 7.75)
+item2 = Item.new('book_id' => book2.id, 'quantity' => 5, 'buying_cost' => 4.5, 'selling_price' => 7.75)
 item3 = Item.new('book_id' => book3.id, 'quantity' => 10, 'buying_cost' => 4.50, 'selling_price' => 7.75)
 
 item1.save
