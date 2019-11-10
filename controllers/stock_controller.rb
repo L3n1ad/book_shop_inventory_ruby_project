@@ -10,5 +10,6 @@ also_reload('../models/*')
 get '/stock' do
   @items = Item.all
   @books = Book.all
+  @genres = Genre.all
   erb(:"stock/index")
 end
