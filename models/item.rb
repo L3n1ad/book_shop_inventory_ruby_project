@@ -46,6 +46,10 @@ class Item
    end
   end
 
+  def markup
+    return @selling_price - @buying_cost
+  end
+
   def self.find_by_book_id(id)
     sql = 'SELECT * FROM inventory WHERE book_id = $1'
     values = [id]
