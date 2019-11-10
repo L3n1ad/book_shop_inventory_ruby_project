@@ -1,0 +1,17 @@
+<h1>This is the stock index page</h1>
+
+<% for item in @items %>
+<% book_id = item.book_id %>
+<% book = Book.find_by_id(book_id) %>
+  <ul>
+    <li>Book title: <%= book.title %></li>
+    <% if item.check_quantity_low %>
+      <li style="color: red;">Quantity: <%= item.quantity %></li>
+    <% else %>
+      <li>Quantity: <%= item.quantity %></li>
+    <% end %>
+    <li>Buying cost: £<%= item.buying_cost %></li>
+    <li>Selling price: £<%= item.selling_price %></li>
+    <li>Markup value: £<%= item.markup %></li>
+  </ul>
+<% end %>
