@@ -1,7 +1,7 @@
 class Genre
 
   def self.all
-    return ['Romance', 'Crime', 'Horro', 'Poetry']
+    return ['Romance', 'Crime', 'Horror', 'Poetry']
   end
 
 end
