@@ -5,7 +5,11 @@
   <input type="text" value="<%= @book.title %> " name="title">
 
   <label for="">Book genre</label>
-  <input type="text" value="<%= @book.genre %> " name="genre">
+  <select name="genre">
+    <% @genres.each do |x| %>
+      <option value="<%= x %>" <%= selected="selected" if x == @book.genre  %>><%= x %></option>
+    <% end %>
+  </select>
 
   <label for="">Book description</label>
   <input type="text" value="<%= @book.description %> " name="description">

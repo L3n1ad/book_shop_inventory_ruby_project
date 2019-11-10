@@ -44,6 +44,7 @@ end
 
 get '/books/:id/edit' do
   @book = Book.find_by_id(params[:id])
+  @genres = Genre.all
   erb(:"books/edit")
 end
 
