@@ -50,6 +50,31 @@ class Item
     return @selling_price - @buying_cost
   end
 
+  def self.sort_by_genre
+    items_sorted_by_genre = {
+      romance: [],
+      crime: [],
+      horror: [],
+      poetry: []
+    }
+    items = Item.all
+    sorted_book_ids = Book.sort_by_genre
+    for item in items
+      if sorted_book_ids[:romance].include?(item.book_id)
+        items_sorted_by_genre[:romance] << item
+      elsif sorted_book_ids[:crime].include?(item.book_id)
+        items_sorted_by_genre[:crime] << item
+      elsif sorted_book_ids[:horror].include?(item.book_id)
+        items_sorted_by_genre[:horror] << item
+      elsif sorted_book_ids[:poetry].include?(item.book_id)
+        items_sorted_by_genre[:poetry] << item
+      end
+    end
+    return items_sorted_by_genre
+  end
+
+
+
   def self.find_by_book_id(id)
     sql = 'SELECT * FROM inventory WHERE book_id = $1'
     values = [id]
