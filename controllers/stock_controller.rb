@@ -19,8 +19,9 @@ post '/stock/sorted_by_author' do
   erb(:"stock/sorted_by_author")
 end
 
-post '/stock' do
-  item = Item.new(params)
+post '/stock/:id' do
+  item = Item.find_by_id(params[:id])
+  item.quantity = params[:quantity]
   item.update
   redirect to '/stock'
 end

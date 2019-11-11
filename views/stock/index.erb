@@ -27,8 +27,8 @@
         <li>Selling price: £<%= item.selling_price %></li>
         <li>Markup value: £<%= item.markup %></li>
       </ul>
-      <form class="" action="/stock" method="post">
-        <input type="number" name="" value="<%= item.quantity %>">
+      <form class="" action="/stock/<%= item.id %>" method="post">
+        <input type="number" name="quantity" value="<%= item.quantity %>">
         <input type="submit" name="" value="Update Quantity">
       </form>
 <% end %>
@@ -49,6 +49,10 @@
         <li>Selling price: £<%= item.selling_price %></li>
         <li>Markup value: £<%= item.markup %></li>
       </ul>
+      <form class="" action="/stock/<%= item.id %>" method="post">
+        <input type="number" name="quantity" value="<%= item.quantity %>">
+        <input type="submit" name="" value="Update Quantity">
+      </form>
 <% end %>
 
 <h1>Horror:</h1>
@@ -67,6 +71,10 @@
         <li>Selling price: £<%= item.selling_price %></li>
         <li>Markup value: £<%= item.markup %></li>
       </ul>
+      <form class="" action="/stock/<%= item.id %>" method="post">
+        <input type="number" name="quantity" value="<%= item.quantity %>">
+        <input type="submit" name="" value="Update Quantity">
+      </form>
 <% end %>
 
 <h1>Poetry:</h1>
@@ -85,4 +93,8 @@
         <li>Selling price: £<%= item.selling_price %></li>
         <li>Markup value: £<%= item.markup %></li>
       </ul>
+      <form class="" action="/stock/<%= item.id %>" method="post">
+        <input type="number" name="quantity" value="<%= item.quantity %>">
+        <input type="submit" name="" value="Update Quantity">
+      </form>
 <% end %>
