@@ -96,6 +96,12 @@ class Item
     return result.map{|item| Item.new(item)}
   end
 
+  def self.all_book_id
+    sql = 'SELECT inventory.book_id FROM inventory'
+    result = SqlRunner.run(sql)
+    return result.values.flatten.uniq
+  end
+
   def self.delete_all()
     sql = 'DELETE FROM inventory'
     SqlRunner.run(sql)
