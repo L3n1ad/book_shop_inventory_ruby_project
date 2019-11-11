@@ -68,13 +68,13 @@ class Book
     books = Book.all
     for book in books
       if book.genre.downcase == "romance"
-        sorted_by_genre[:romance] << book
+        sorted_by_genre[:romance] << book.id
       elsif book.genre.downcase == "crime"
-        sorted_by_genre[:crime] << book
+        sorted_by_genre[:crime] << book.id
       elsif book.genre.downcase == "horror"
-        sorted_by_genre[:horror] << book
+        sorted_by_genre[:horror] << book.id
       elsif book.genre.downcase == "poetry"
-        sorted_by_genre[:poetry] << book
+        sorted_by_genre[:poetry] << book.id
       else
         next
       end
