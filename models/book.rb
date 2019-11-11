@@ -58,6 +58,29 @@ class Book
     return result.map{|author_just_id| author_just_id['id'].to_i}
   end
 
+  def self.sort_by_genre
+    sorted_by_genre = {
+      romance: [],
+      crime: [],
+      horror: [],
+      poetry: []
+    }
+    books = Book.all
+    for book in books
+      if book.genre.downcase == "romance"
+        sorted_by_genre[:romance] << book
+      elsif book.genre.downcase == "crime"
+        sorted_by_genre[:crime] << book
+      elsif book.genre.downcase == "horror"
+        sorted_by_genre[:horror] << book
+      elsif book.genre.downcase == "poetry"
+        sorted_by_genre[:poetry] << book
+      else
+        next
+      end
+    end
+    return sorted_by_genre
+  end
 
   def self.find_by_id(id)
     sql = 'SELECT * FROM books WHERE id = $1'

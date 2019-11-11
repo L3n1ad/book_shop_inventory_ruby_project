@@ -24,11 +24,13 @@ book1 = Book.new('title' => 'book1','genre' => 'Romance','description' => 'I am 
 book2 = Book.new('title' => 'book2','genre' => 'Crime','description' => 'I am book2','year' => 1990)
 book3 = Book.new('title' => 'book3','genre' => 'Horror','description' => 'I am book3','year' => 1800)
 book4 = Book.new('title' => 'book4','genre' => 'Poetry','description' => 'I am book4','year' => 1700)
+book5 = Book.new('title' => 'book5','genre' => 'Horror','description' => 'I am book5','year' => 1700)
 
 book1.save
 book2.save
 book3.save
 book4.save
+book5.save
 
 publication1 = Publication.new('book_id' => book1.id,'author_id' => author1.id)
 publication2 = Publication.new('book_id' => book1.id,'author_id' => author2.id)
