@@ -5,20 +5,26 @@
 
 <% if @publications != nil %>
   <% for publication in @publications %>
-    <% item =  Item.find_by_book_id(publication.book_id) %>
-    <% book_id = item.book_id %>
-    <% book = Book.find_by_id(book_id) %>
-    <ul>
-      <li>Book title: <%= book.title %></li>
-      <% if item.check_quantity_low %>
-        <li style="color: red;">Quantity: <%= item.quantity %></li>
-      <% else %>
-        <li>Quantity: <%= item.quantity %></li>
-      <% end %>
-      <li>Buying cost: £<%= item.buying_cost %></li>
-      <li>Selling price: £<%= item.selling_price %></li>
-      <li>Markup value: £<%= item.markup %></li>
-    </ul>
+    <% if @items_books_id.include?(publication.book_id.to_s) %>
+      <% item =  Item.find_by_book_id(publication.book_id) %>
+      <% book_id = item.book_id %>
+      <% book = Book.find_by_id(book_id) %>
+      <ul>
+        <li>Book title: <%= book.title %></li>
+        <% if item.check_quantity_low %>
+          <li style="color: red;">Quantity: <%= item.quantity %></li>
+        <% else %>
+          <li>Quantity: <%= item.quantity %></li>
+        <% end %>
+        <li>Buying cost: £<%= item.buying_cost %></li>
+        <li>Selling price: £<%= item.selling_price %></li>
+        <li>Markup value: £<%= item.markup %></li>
+      </ul>
+      <form class="" action="/stock/<%= item.id %>" method="post">
+        <input type="number" name="quantity" value="<%= item.quantity %>">
+        <input type="submit" name="" value="Update Quantity">
+      </form>
+    <% end %>
   <% end %>
 <% else %>
   <h1>There is no items by <%= author.pretty_name %></h1>

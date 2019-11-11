@@ -16,6 +16,7 @@ end
 post '/stock/sorted_by_author' do
   @author_id = params[:author_id]
   @publications = Publication.sort_by_author[@author_id.to_i]
+  @items_books_id = Item.all_book_id
   erb(:"stock/sorted_by_author")
 end
 
