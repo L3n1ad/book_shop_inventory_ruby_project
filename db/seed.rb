@@ -47,6 +47,7 @@ item2 = Item.new('book_id' => book2.id, 'quantity' => 5, 'buying_cost' => 4.5, '
 item3 = Item.new('book_id' => book3.id, 'quantity' => 10, 'buying_cost' => 4.50, 'selling_price' => 7.75)
 item4 = Item.new('book_id' => book4.id, 'quantity' => 10, 'buying_cost' => 4.50, 'selling_price' => 7.75)
 item5 = Item.new('book_id' => book1.id, 'quantity' => 10, 'buying_cost' => 4.50, 'selling_price' => 7.75)
+item6 = Item.new('book_id' => book3.id, 'quantity' => 10, 'buying_cost' => 4.50, 'selling_price' => 7.75)
 
 
 item1.save
@@ -54,6 +55,7 @@ item2.save
 item3.save
 item4.save
 item5.save
+item6.save
 
 
 binding pry
