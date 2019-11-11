@@ -1,5 +1,14 @@
 <h1>This is the stock index page</h1>
 
+<form class="" action="/stock" method="post">
+  <select class="" name="author_id">
+    <% for author in @authors %>
+        <option value="<%= author.id %>"><%= author.pretty_name %></option>
+    <% end %>
+  </select>
+  <input type="submit" name="" value="Search by Author">
+</form>
+
 <h1>Romance:</h1>
 
 <% for item in @sorted_by_genre[:romance]%>
