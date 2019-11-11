@@ -1,4 +1,5 @@
 require_relative('../db/sqlrunner.rb')
+require('pry-byebug')
 
 class Book
 
@@ -59,7 +60,7 @@ class Book
   end
 
   def self.sort_by_genre
-    sorted_by_genre = {
+    genre_hash = {
       romance: [],
       crime: [],
       horror: [],
@@ -79,10 +80,9 @@ class Book
         next
       end
     end
-    return sorted_by_genre
+    # return sorted_by_genre
     # books = Book.all
     # sorted_by_genre = books.group_by{|book| book.genre}
-    # return sorted_by_genre
   end
 
   def self.find_by_id(id)
