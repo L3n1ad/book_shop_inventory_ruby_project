@@ -1,7 +1,8 @@
-<h1>Sort by Author page</h1>
+<% author = Author.find_by_id(@author_id) %>
+<h1>Sort by Author: <%= author.pretty_name %> page</h1>
 
 
-<p><%= @author_id  %></p>
+
 <% if @publications != nil %>
   <% for publication in @publications %>
     <% item =  Item.find_by_book_id(publication.book_id) %>
@@ -20,6 +21,5 @@
     </ul>
   <% end %>
 <% else %>
-  <% author = Author.find_by_id(@author_id) %>
   <h1>There is no items by <%= author.pretty_name %></h1>
 <% end %>

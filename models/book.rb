@@ -80,6 +80,9 @@ class Book
       end
     end
     return sorted_by_genre
+    # books = Book.all
+    # sorted_by_genre = books.group_by{|book| book.genre}
+    # return sorted_by_genre
   end
 
   def self.find_by_id(id)
