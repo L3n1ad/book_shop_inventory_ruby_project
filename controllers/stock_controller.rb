@@ -8,8 +8,6 @@ require_relative('../models/item.rb')
 also_reload('../models/*')
 
 get '/stock' do
-  @items = Item.all
-  @books = Book.all
-  @genres = Genre.all
+  @sorted_by_genre = Item.sort_by_genre
   erb(:"stock/index")
 end
