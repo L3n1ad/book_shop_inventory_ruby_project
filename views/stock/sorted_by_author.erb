@@ -1,0 +1,25 @@
+<h1>Sort by Author page</h1>
+
+
+<p><%= @author_id  %></p>
+<% if @publications != nil %>
+  <% for publication in @publications %>
+    <% item =  Item.find_by_book_id(publication.book_id) %>
+    <% book_id = item.book_id %>
+    <% book = Book.find_by_id(book_id) %>
+    <ul>
+      <li>Book title: <%= book.title %></li>
+      <% if item.check_quantity_low %>
+        <li style="color: red;">Quantity: <%= item.quantity %></li>
+      <% else %>
+        <li>Quantity: <%= item.quantity %></li>
+      <% end %>
+      <li>Buying cost: £<%= item.buying_cost %></li>
+      <li>Selling price: £<%= item.selling_price %></li>
+      <li>Markup value: £<%= item.markup %></li>
+    </ul>
+  <% end %>
+<% else %>
+  <% author = Author.find_by_id(@author_id) %>
+  <h1>There is no items by <%= author.pretty_name %></h1>
+<% end %>
