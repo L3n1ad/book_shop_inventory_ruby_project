@@ -36,6 +36,12 @@ class Publication
     SqlRunner.run(sql, values)
   end
 
+  def self.sort_by_author
+    publications = Publication.all
+    sorted_by_author = publications.group_by{|publication| publication.author_id}
+    return sorted_by_author
+  end
+
   def self.find_by_id(id)
     sql = 'SELECT * FROM publications WHERE id = $1'
     values = [id]
