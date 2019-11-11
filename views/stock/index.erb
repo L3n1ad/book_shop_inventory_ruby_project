@@ -1,6 +1,6 @@
 <h1>This is the stock index page</h1>
 
-<form class="" action="/stock" method="post">
+<form class="" action="/stock/sorted_by_author" method="post">
   <select class="" name="author_id">
     <% for author in @authors %>
         <option value="<%= author.id %>"><%= author.pretty_name %></option>
@@ -10,6 +10,7 @@
 </form>
 
 <h1>Romance:</h1>
+
 
 <% for item in @sorted_by_genre[:romance]%>
   <% book_id = item.book_id %>
@@ -21,10 +22,15 @@
         <% else %>
           <li>Quantity: <%= item.quantity %></li>
         <% end %>
+
         <li>Buying cost: £<%= item.buying_cost %></li>
         <li>Selling price: £<%= item.selling_price %></li>
         <li>Markup value: £<%= item.markup %></li>
       </ul>
+      <form class="" action="/stock" method="post">
+        <input type="number" name="" value="<%= item.quantity %>">
+        <input type="submit" name="" value="Update Quantity">
+      </form>
 <% end %>
 
 <h1>Crime:</h1>

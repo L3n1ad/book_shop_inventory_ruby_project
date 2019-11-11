@@ -13,8 +13,14 @@ get '/stock' do
   erb(:"stock/index")
 end
 
-post '/stock' do
+post '/stock/sorted_by_author' do
   @author_id = params[:author_id]
   @publications = Publication.sort_by_author[@author_id.to_i]
   erb(:"stock/sorted_by_author")
+end
+
+post '/stock' do
+  item = Item.new(params)
+  item.update
+  redirect to '/stock'
 end

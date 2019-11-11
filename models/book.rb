@@ -60,7 +60,7 @@ class Book
   end
 
   def self.sort_by_genre
-    genre_hash = {
+    sorted_by_genre = {
       romance: [],
       crime: [],
       horror: [],
@@ -80,7 +80,7 @@ class Book
         next
       end
     end
-    # return sorted_by_genre
+    return sorted_by_genre
     # books = Book.all
     # sorted_by_genre = books.group_by{|book| book.genre}
   end
