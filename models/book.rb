@@ -82,7 +82,16 @@ class Book
     end
     return sorted_by_genre
     # books = Book.all
-    # sorted_by_genre = books.group_by{|book| book.genre}
+    # sorted_by_genre = []
+    # genre_hash = books.group_by{|book| book.genre}
+    # genre_hash.each do |genre, books_array|
+    #   genre = []
+    #   books_array.each do |book|
+    #     genre << book.id
+    #   end
+    #   sorted_by_genre << genre
+    # end
+    # return sorted_by_genre
   end
 
   def self.find_by_id(id)
