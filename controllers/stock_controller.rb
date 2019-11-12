@@ -7,6 +7,8 @@ require_relative('../models/publication.rb')
 require_relative('../models/item.rb')
 also_reload('../models/*')
 
+# INDEX route
+
 get '/stock' do
   @sorted_by_genre = Item.sort_by_genre
   @genres = Genre.all
@@ -14,11 +16,15 @@ get '/stock' do
   erb(:"stock/index")
 end
 
+# SORT BY AUTHOR route
+
 post '/stock/sorted_by_author' do
   @author_id = params[:author_id].to_i
   @items_by_author = Item.sort_by_author(@author_id)
   erb(:"stock/sorted_by_author")
 end
+
+# UPDATE quantity route
 
 post '/stock/:id' do
   item = Item.find_by_id(params[:id])
@@ -41,4 +47,12 @@ post '/stock' do
   item = Item.new(params)
   item.save
   redirect to "/stock"
+end
+
+# DELETE route
+
+post '/stock/:id/delete' do
+  item = Item.find_by_id(params[:id].to_i)
+  item.delete
+  redirect to '/stock'
 end
