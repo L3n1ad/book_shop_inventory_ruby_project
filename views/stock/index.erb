@@ -11,28 +11,30 @@
 <a href="/stock/new">Create new item</a>
 
 <% for genre in @genres %>
-  <h1><%= genre %>:</h1>
-  <% for item in @sorted_by_genre[genre.downcase]%>
-    <% book_id = item.book_id %>
-    <% book = Book.find_by_id(book_id) %>
-        <ul>
-          <li>Book title: <%= book.title %></li>
-          <% if item.check_quantity_low %>
-            <li style="color: red;">Quantity: <%= item.quantity %></li>
-          <% else %>
-            <li>Quantity: <%= item.quantity %></li>
-          <% end %>
+  <% if @sorted_by_genre[genre.downcase].length != 0 %>
+    <h1><%= genre %>:</h1>
+    <% for item in @sorted_by_genre[genre.downcase]%>
+      <% book_id = item.book_id %>
+      <% book = Book.find_by_id(book_id) %>
+          <ul>
+            <li>Book title: <%= book.title %></li>
+            <% if item.check_quantity_low %>
+              <li style="color: red;">Quantity: <%= item.quantity %></li>
+            <% else %>
+              <li>Quantity: <%= item.quantity %></li>
+            <% end %>
 
-          <li>Buying cost: £<%= item.buying_cost %></li>
-          <li>Selling price: £<%= item.selling_price %></li>
-          <li>Markup value: £<%= item.markup %></li>
-        </ul>
-        <form class="" action="/stock/<%= item.id %>" method="post">
-          <input type="number" name="quantity" value="<%= item.quantity %>">
-          <input type="submit" name="" value="Update Quantity">
-        </form>
-        <form class="" action="/stock/<%= item.id %>/delete" method="post">
-          <input type="submit" name="" value="Delete Item">
-        </form>
+            <li>Buying cost: £<%= item.buying_cost %></li>
+            <li>Selling price: £<%= item.selling_price %></li>
+            <li>Markup value: £<%= item.markup %></li>
+          </ul>
+          <form class="" action="/stock/<%= item.id %>" method="post">
+            <input type="number" name="quantity" value="<%= item.quantity %>">
+            <input type="submit" name="" value="Update Quantity">
+          </form>
+          <form class="" action="/stock/<%= item.id %>/delete" method="post">
+            <input type="submit" name="" value="Delete Item">
+          </form>
+    <% end %>
   <% end %>
 <% end %>
