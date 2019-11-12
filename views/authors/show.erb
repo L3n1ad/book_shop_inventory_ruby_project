@@ -14,6 +14,9 @@
       <ul>
         <li>Title:<a href="/books/<%= book.id %>"> <%= book.title %></a></li>
         <li>Genre: <%= book.genre %></li>
+        <form class="" action="publication/<%= @author.id %>/<%= book.id %>/delete" method="post">
+          <input type="submit" name="" value="Delete Book">
+        </form>
       </ul>
       <% end %>
     <% else %>

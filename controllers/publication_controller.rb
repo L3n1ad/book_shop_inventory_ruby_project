@@ -24,6 +24,16 @@ post '/publications/:author_id' do
   redirect to '/authors'
 end
 
+# DELETE AUTHOR FROM BOOKS route
+
+post '/books/publication/:author_id/:book_id/delete' do
+  author_id = params[:author_id].to_i
+  book_id = params[:book_id].to_i
+  publication = Publication.find_by_author_and_book_id(author_id,book_id)
+  publication.delete
+  redirect to '/books'
+end
+
 # NEW AUTHOR FOR BOOKS route
 
 get '/publication/:book_id/add_author' do
@@ -39,4 +49,14 @@ post '/publication/:book_id' do
   publication = Publication.new(params)
   publication.save
   redirect to '/books'
+end
+
+# DELETE BOOKS FROM AUTHOR route
+
+post '/authors/publication/:author_id/:book_id/delete' do
+  author_id = params[:author_id].to_i
+  book_id = params[:book_id].to_i
+  publication = Publication.find_by_author_and_book_id(author_id,book_id)
+  publication.delete
+  redirect to '/authors'
 end

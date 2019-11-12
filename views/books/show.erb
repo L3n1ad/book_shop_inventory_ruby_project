@@ -13,6 +13,9 @@
     <% if @authors.length != 0 %>
       <% for author in @authors %>
         <li><a href="/authors/<%= author.id %>">Name: <%= author.pretty_name %></a></li>
+        <form class="" action="publication/<%= author.id %>/<%= @book.id %>/delete" method="post">
+          <input type="submit" name="" value="Delete Author">
+        </form>
       <% end %>
     <% else %>
       <p>No Authors for this book</p>

@@ -49,6 +49,13 @@ class Publication
     return Publication.new(result)
   end
 
+  def self.find_by_author_and_book_id(author_id, book_id)
+    sql = 'SELECT * FROM publications WHERE author_id = $1 AND book_id = $2'
+    values = [author_id, book_id]
+    result = SqlRunner.run(sql, values).first
+    return Publication.new(result)
+  end
+
   def self.all()
     sql = 'SELECT * FROM publications;'
     result = SqlRunner.run(sql)
