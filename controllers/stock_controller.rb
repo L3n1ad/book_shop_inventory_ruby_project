@@ -26,3 +26,19 @@ post '/stock/:id' do
   item.update
   redirect to '/stock'
 end
+
+# NEW route
+
+get '/stock/new' do
+  @books = Book.all
+  @book_ids = Item.all_book_id
+  erb(:"stock/new")
+end
+
+# CREATE route
+
+post '/stock' do
+  item = Item.new(params)
+  item.save
+  redirect to "/stock"
+end
