@@ -50,6 +50,11 @@ class Item
     return @selling_price - @buying_cost
   end
 
+  def all_book_id
+    sql = 'SELECT inventory.book_id FROM inventory'
+    SqlRunner.run(sql).first
+  end
+
   def self.sort_by_genre
     items_sorted_by_genre = {
       'romance' => [],
