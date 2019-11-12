@@ -1,0 +1,23 @@
+<h1>new stock item page</h1>
+
+<form class="" action="/stock" method="post">
+  <label for="">Book</label>
+  <select class="" name="book_id">
+    <% for book in @books %>
+      <% if @book_ids.include?(book.id.to_s) == false %>
+        <option value="<%= book.id %>"><%= book.title %></option>
+      <% end %>
+    <% end %>
+  </select>
+
+  <label for="">Quantity</label>
+  <input type="number" name="quantity" value="">
+
+  <label for="">Buying Cost</label>
+  <input type="number" name="buying_cost" value="">
+
+  <label for="">Selling Price</label>
+  <input type="number" name="selling_price" value="">
+
+  <input type="submit" value="Create Book">
+</form>
