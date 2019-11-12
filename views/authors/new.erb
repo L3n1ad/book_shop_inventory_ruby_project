@@ -2,19 +2,22 @@
 
 <form class="" action="/authors" method="post">
   <label for="">First Name</label>
-  <input type="text" name="first_name">
+  <input required type="text" name="first_name">
 
   <label for="">Last Name</label>
-  <input type="text" name="last_name">
+  <input required type="text" name="last_name">
+
+  <label for="">Profile Picture Url</label>
+  <input required type="text" name="profile_img">
 
   <label for="">Date of Birth</label>
-  <input type="num" name="date_of_birth" placeholder="ddmmyyyy">
+  <input required type="num" name="date_of_birth" placeholder="ddmmyyyy">
 
   <label for="">Description</label>
-  <textarea name="description" rows="8" cols="80"></textarea>
+  <textarea required name="description" rows="1" cols="40"></textarea>
 
   <label for="">Book</label>
-  <select name="book_id">
+  <select required name="book_id">
     <% for book in @books %>
     <option value="<%= book.id %>"><%= book.title %></option>
     <% end %>
