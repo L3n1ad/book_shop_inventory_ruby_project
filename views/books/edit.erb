@@ -2,20 +2,20 @@
 
 <form class="" action="/books/<%= @book.id %>" method="post">
   <label for="">Book Title</label>
-  <input type="text" value="<%= @book.title %> " name="title">
+  <input required type="text" value="<%= @book.title %> " name="title">
 
   <label for="">Book genre</label>
-  <select name="genre">
+  <select required name="genre">
     <% @genres.each do |x| %>
       <option value="<%= x %>" <%= selected="selected" if x == @book.genre  %>><%= x %></option>
     <% end %>
   </select>
 
   <label for="">Book description</label>
-  <input type="text" value="<%= @book.description %> " name="description">
+  <input required type="text" value="<%= @book.description %> " name="description">
 
   <label for="">year</label>
-  <input type="number" value="<%= @book.year.to_i %>" name="year">
+  <input required type="number" max='2019' value="<%= @book.year.to_i %>" name="year">
 
-  <input type="submit" name="" value="Update Book">
+  <input required type="submit" name="" value="Update Book">
 </form>

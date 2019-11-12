@@ -2,23 +2,26 @@
 
 <form class="" action="/books" method="post">
   <label for="">Book Title</label>
-  <input type="text" name="title">
+  <input required type="text" name="title">
 
   <label for="">Book genre</label>
-  <select name="genre">
+  <select required name="genre">
     <% @genres.each do |x| %>
       <option value="<%= x %>"><%= x %></option>
     <% end %>
   </select>
 
   <label for="">Book description</label>
-  <input type="text" name="description">
+  <input required type="text" name="description">
+
+  <label for="">Cover Url</label>
+  <input required type="text" name="cover">
 
   <label for="">year</label>
-  <input type="number" name="year">
+  <input required type="number" max='2019' name="year">
 
   <label for="">author</label>
-  <select name="author_id">
+  <select required name="author_id">
     <% for author in @authors %>
     <option value="<%= author.id %>"><%= author.pretty_name %></option>
     <% end %>
