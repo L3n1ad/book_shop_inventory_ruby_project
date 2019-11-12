@@ -61,21 +61,21 @@ class Book
 
   def self.sort_by_genre
     sorted_by_genre = {
-      romance: [],
-      crime: [],
-      horror: [],
-      poetry: []
+      'romance' => [],
+      'crime' => [],
+      'horror' => [],
+      'poetry' => []
     }
     books = Book.all
     for book in books
       if book.genre.downcase == "romance"
-        sorted_by_genre[:romance] << book.id
+        sorted_by_genre['romance'] << book.id
       elsif book.genre.downcase == "crime"
-        sorted_by_genre[:crime] << book.id
+        sorted_by_genre['crime'] << book.id
       elsif book.genre.downcase == "horror"
-        sorted_by_genre[:horror] << book.id
+        sorted_by_genre['horror'] << book.id
       elsif book.genre.downcase == "poetry"
-        sorted_by_genre[:poetry] << book.id
+        sorted_by_genre['poetry'] << book.id
       else
         next
       end
