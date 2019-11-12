@@ -4,7 +4,7 @@ require('pry-byebug')
 class Book
 
   attr_reader :id
-  attr_accessor :title, :genre, :description, :year
+  attr_accessor :title, :genre, :description, :year, :cover
 
   def initialize(options)
     @id = options['id'].to_i if options['id']
@@ -12,24 +12,25 @@ class Book
     @genre = options['genre']
     @description = options['description']
     @year = options['year'].to_i
+    @cover = options['cover']
   end
 
   def save()
-    sql = 'INSERT INTO books(title, genre, description, year)
-          VALUES ($1, $2, $3, $4)
+    sql = 'INSERT INTO books(title, genre, description, year, cover)
+          VALUES ($1, $2, $3, $4, $5)
           RETURNING id'
-    values = [@title, @genre, @description, @year]
+    values = [@title, @genre, @description, @year, @cover]
     result = SqlRunner.run(sql, values).first
     @id = result['id']
   end
 
   def update()
     sql = 'UPDATE books
-          SET (title, genre, description, year)
+          SET (title, genre, description, year, cover)
           =
-          ($1, $2, $3, $4)
-          WHERE id = $5'
-    values = [@title, @genre, @description, @year, @id]
+          ($1, $2, $3, $4, $5)
+          WHERE id = $6'
+    values = [@title, @genre, @description, @year, @cover, @id]
     SqlRunner.run(sql, values)
   end
 
@@ -61,21 +62,21 @@ class Book
 
   def self.sort_by_genre
     sorted_by_genre = {
-      'romance' => [],
-      'crime' => [],
+      'fantasy' => [],
+      'comedy' => [],
       'horror' => [],
-      'poetry' => []
+      'drama' => []
     }
     books = Book.all
     for book in books
-      if book.genre.downcase == "romance"
-        sorted_by_genre['romance'] << book.id
-      elsif book.genre.downcase == "crime"
-        sorted_by_genre['crime'] << book.id
+      if book.genre.downcase == "fantasy"
+        sorted_by_genre['fantasy'] << book.id
+      elsif book.genre.downcase == "comedy"
+        sorted_by_genre['comedy'] << book.id
       elsif book.genre.downcase == "horror"
         sorted_by_genre['horror'] << book.id
-      elsif book.genre.downcase == "poetry"
-        sorted_by_genre['poetry'] << book.id
+      elsif book.genre.downcase == "drama"
+        sorted_by_genre['drama'] << book.id
       else
         next
       end
