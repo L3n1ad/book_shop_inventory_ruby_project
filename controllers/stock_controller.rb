@@ -9,6 +9,7 @@ also_reload('../models/*')
 
 get '/stock' do
   @sorted_by_genre = Item.sort_by_genre
+  @genres = Genre.all
   @authors = Author.all
   erb(:"stock/index")
 end
