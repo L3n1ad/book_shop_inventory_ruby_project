@@ -3,7 +3,7 @@ require_relative('../db/sqlrunner.rb')
 class Author
 
   attr_reader :id
-  attr_accessor :first_name, :last_name, :date_of_birth, :description
+  attr_accessor :first_name, :last_name, :date_of_birth, :description, :profile_img
 
   def initialize(options)
     @id = options['id'].to_i if options['id']
@@ -11,24 +11,25 @@ class Author
     @last_name = options['last_name']
     @date_of_birth = options['date_of_birth'].to_i
     @description = options['description']
+    @profile_img = options['profile_img']
   end
 
   def save()
-    sql = 'INSERT INTO authors(first_name,last_name,date_of_birth,description)
-          VALUES ($1, $2, $3, $4)
+    sql = 'INSERT INTO authors(first_name,last_name,date_of_birth,description, profile_img)
+          VALUES ($1, $2, $3, $4, $5)
           RETURNING id'
-    values = [@first_name, @last_name, @date_of_birth, @description]
+    values = [@first_name, @last_name, @date_of_birth, @description, @profile_img]
     result = SqlRunner.run(sql, values).first
     @id = result['id']
   end
 
   def update()
     sql = 'UPDATE authors
-          SET (first_name, last_name, date_of_birth, description)
+          SET (first_name, last_name, date_of_birth, description, profile_img)
           =
-          ($1, $2, $3, $4)
-          WHERE id = $5'
-    values = [@first_name, @last_name, @date_of_birth, @description, @id]
+          ($1, $2, $3, $4, $5)
+          WHERE id = $6'
+    values = [@first_name, @last_name, @date_of_birth, @description, @profile_img, @id]
     SqlRunner.run(sql, values)
   end
 
