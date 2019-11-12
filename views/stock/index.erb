@@ -17,7 +17,7 @@
       <% book_id = item.book_id %>
       <% book = Book.find_by_id(book_id) %>
           <ul>
-            <li>Book title: <%= book.title %></li>
+            <li>Book title: <a href="/books/<%= book.id %>"><%= book.title %></a></li>
             <% if item.check_quantity_low %>
               <li style="color: red;">Quantity: <%= item.quantity %></li>
             <% else %>
