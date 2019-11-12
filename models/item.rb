@@ -73,6 +73,22 @@ class Item
     return items_sorted_by_genre
   end
 
+  def self.sort_by_author(author_id)
+    publications = Publication.sort_by_author[author_id]
+    items_books_id = Item.all_book_id
+    sorted_by_author = []
+    if publications != nil
+      for publication in publications
+        if items_books_id.include?(publication.book_id.to_s)
+          sorted_by_author << Item.find_by_book_id(publication.book_id)
+        else
+          next
+        end
+      end
+    end
+    return sorted_by_author
+  end
+
 
 
   def self.find_by_book_id(id)

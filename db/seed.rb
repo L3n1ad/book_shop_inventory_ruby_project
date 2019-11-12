@@ -14,23 +14,27 @@ author1 = Author.new('first_name' => 'John','last_name' => 'author1','date_of_bi
 author2 = Author.new('first_name' => 'Mark','last_name' => 'author2','date_of_birth' => 2000,'description' => 'author2 description')
 author3 = Author.new('first_name' => 'Clarie','last_name' => 'author3','date_of_birth' => 2010,'description' => 'author3 description')
 author4 = Author.new('first_name' => 'Mate','last_name' => 'author4','date_of_birth' => 1700,'description' => 'author4 description')
+author5 = Author.new('first_name' => 'I dont have item','last_name' => 'author5','date_of_birth' => 1700,'description' => 'author5 description')
 
 author1.save
 author2.save
 author3.save
 author4.save
+author5.save
 
 book1 = Book.new('title' => 'book1','genre' => 'Romance','description' => 'I am book1','year' => 2000)
 book2 = Book.new('title' => 'book2','genre' => 'Crime','description' => 'I am book2','year' => 1990)
 book3 = Book.new('title' => 'book3','genre' => 'Horror','description' => 'I am book3','year' => 1800)
 book4 = Book.new('title' => 'book4','genre' => 'Poetry','description' => 'I am book4','year' => 1700)
 book5 = Book.new('title' => 'book5','genre' => 'Horror','description' => 'I am book5','year' => 1700)
+book6 = Book.new('title' => 'book6 I dont have an item','genre' => 'Horror','description' => 'I am book6','year' => 1700)
 
 book1.save
 book2.save
 book3.save
 book4.save
 book5.save
+book6.save
 
 publication1 = Publication.new('book_id' => book1.id,'author_id' => author1.id)
 publication2 = Publication.new('book_id' => book1.id,'author_id' => author2.id)
