@@ -4,12 +4,14 @@ th.books_authors span {
 body {
   background-color: #2E4057;
   color: #F6D8AE;
+  font-size: 20px;
 }
 
 .container {
     display: block;
     margin: 20px;
 }
+
 
 #book_img {
     max-width: 300px;
@@ -77,9 +79,9 @@ a:hover, a:active, a:focus {
   color: #DA4167;
 }
 
-input[type="number"] {
-  max-width: 40px;
-}
+/* input[type="number"] {
+  max-width: 30px;
+} */
 
 th.genre {
     text-align: start;
