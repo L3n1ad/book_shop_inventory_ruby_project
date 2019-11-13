@@ -1,33 +1,47 @@
 <div class="container">
-  <h1>This is books new page</h1>
+  <h1>Create new book</h1>
 
   <form class="" action="/books" method="post">
-    <label for="">Book Title</label>
-    <input required type="text" name="title">
+    <p>
+      <label for="">Book Title</label>
+      <input required type="text" name="title">
+    </p>
 
-    <label for="">Book genre</label>
-    <select required name="genre">
-      <% @genres.each do |x| %>
-        <option value="<%= x %>"><%= x %></option>
-      <% end %>
-    </select>
+    <p>
+      <label for="">Book genre</label>
+      <select required name="genre">
+        <% @genres.each do |x| %>
+          <option value="<%= x %>"><%= x %></option>
+        <% end %>
+      </select>
+    </p>
 
-    <label for="">Book description</label>
-    <input required type="text" name="description">
+    <p>
+      <label for="">Book description</label>
+      <textarea required name="description" rows="4" cols="40"></textarea>
+    </p>
 
-    <label for="">Cover Url</label>
-    <input required type="text" name="cover">
+    <p>
+      <label for="">Cover Url</label>
+      <input required type="text" name="cover">
+    </p>
 
-    <label for="">year</label>
-    <input required type="number" max='2019' name="year">
+    <p>
+      <label for="">year</label>
+      <input required type="number" min='0' step='1' max='2019' name="year">
+    </p>
 
-    <label for="">author</label>
-    <select required name="author_id">
-      <% for author in @authors %>
-      <option value="<%= author.id %>"><%= author.pretty_name %></option>
-      <% end %>
-    </select>
+    <p>
+      <label for="">author</label>
+      <select required name="author_id">
+        <% for author in @authors %>
+        <option value="<%= author.id %>"><%= author.pretty_name %></option>
+        <% end %>
+      </select>
+    </p>
 
-    <input type="submit" value="Create Book">
+    <p>
+      <input type="submit" value="Create Book">
+    </p>
   </form>
 </div>

@@ -1,21 +1,32 @@
 <h1>This is books edit page</h1>
 
 <form class="" action="/books/<%= @book.id %>" method="post">
+
+  <p>
   <label for="">Book Title</label>
   <input required type="text" value="<%= @book.title %> " name="title">
+  </p>
 
+  <p>
   <label for="">Book genre</label>
   <select required name="genre">
     <% @genres.each do |x| %>
       <option value="<%= x %>" <%= selected="selected" if x == @book.genre  %>><%= x %></option>
     <% end %>
   </select>
+  </p>
 
+  <p>
   <label for="">Book description</label>
   <input required type="text" value="<%= @book.description %> " name="description">
+  </p>
 
-  <label for="">year</label>
+  <p>
+  <label for="">Year</label>
   <input required type="number" max='2019' value="<%= @book.year.to_i %>" name="year">
+  </p>
 
+  <p>
   <input required type="submit" name="" value="Update Book">
+  </p>
 </form>
