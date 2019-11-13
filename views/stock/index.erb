@@ -10,7 +10,7 @@
 </form>
 <a href="/stock/new">Create new item</a>
 
-<table style="width:100%">
+<table >
   <tr>
     <th>Genre</th>
     <th>Book Title</th>
@@ -33,7 +33,7 @@
               <th></th>
               <th><a href="/books/<%= book.id %>"><%= book.title %></a></th>
               <% if item.check_quantity_low %>
-              <th style="color: red;"><%= item.quantity %></th>
+              <th style="background-color: red;"><%= item.quantity %></th>
               <% else %>
               <th><%= item.quantity %></th>
               <% end %>

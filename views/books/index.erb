@@ -1,11 +1,23 @@
 <h1>This is books index page</h1>
 
-
-<% for book in @books %>
-  <ul>
-    <li><a href="/books/<%= book.id %>"><%= book.title %></a></li>
-    <li><%= book.year %></li>
-  </ul>
-<% end %>
+<table >
+  <tr>
+    <th>Title</th>
+    <th>Year of publish</th>
+    <th>Authors</th>
+  </tr>
+    <% for book in @books %>
+      <% authors = book.authors %>
+        <tr>
+          <th><a href="/books/<%= book.id %>"><%= book.title %></a></th>
+          <th><%= book.year %></th>
+          <th class="books_authors">
+            <% for author in authors %>
+                <span><%= author.pretty_name %></span>
+            <% end %>
+          </th>
+        </tr>
+    <% end %>
+</table>
 
 <a href="/books/new">Create New Book</a>
