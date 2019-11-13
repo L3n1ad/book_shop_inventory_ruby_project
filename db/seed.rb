@@ -45,6 +45,9 @@ publication3 = Publication.new('book_id' => book3.id,'author_id' => author3.id)
 publication4 = Publication.new('book_id' => book4.id,'author_id' => author4.id)
 publication5 = Publication.new('book_id' => book4.id,'author_id' => author5.id)
 publication6 = Publication.new('book_id' => book5.id,'author_id' => author6.id)
+publication7 = Publication.new('book_id' => book4.id,'author_id' => author6.id)
+publication8 = Publication.new('book_id' => book3.id,'author_id' => author6.id)
+publication9 = Publication.new('book_id' => book2.id,'author_id' => author6.id)
 
 publication1.save
 publication2.save
@@ -52,13 +55,16 @@ publication3.save
 publication4.save
 publication5.save
 publication6.save
+publication7.save
+publication8.save
+publication9.save
 
 item1 = Item.new('book_id' => book1.id, 'quantity' => 1, 'buying_cost' => 4.25, 'selling_price' => 7.75)
 item2 = Item.new('book_id' => book2.id, 'quantity' => 5, 'buying_cost' => 4, 'selling_price' => 6.50)
 item3 = Item.new('book_id' => book3.id, 'quantity' => 3, 'buying_cost' => 4.50, 'selling_price' => 8.50)
 item4 = Item.new('book_id' => book4.id, 'quantity' => 10, 'buying_cost' => 3.75, 'selling_price' => 7.25)
 item5 = Item.new('book_id' => book5.id, 'quantity' => 4, 'buying_cost' => 4.50, 'selling_price' => 7.75)
-item6 = Item.new('book_id' => book6.id, 'quantity' => 10,'buying_cost' => 2.75, 'selling_price' => 5.25)
+
 
 
 item1.save
@@ -66,7 +72,7 @@ item2.save
 item3.save
 item4.save
 item5.save
-item6.save
+
 
 
 
