@@ -1,29 +1,43 @@
 <div class="container">
-  <h1>This is books new page</h1>
+  <h1>Create new author</h1>
 
   <form class="" action="/authors" method="post">
-    <label for="">First Name</label>
-    <input required type="text" name="first_name">
+    <p>
+      <label for="">First Name</label>
+      <input required type="text" name="first_name">
+    </p>
 
-    <label for="">Last Name</label>
-    <input required type="text" name="last_name">
+    <p>
+      <label for="">Last Name</label>
+      <input required type="text" name="last_name">
+    </p>
 
-    <label for="">Profile Picture Url</label>
-    <input required type="text" name="profile_img">
+    <p>
+      <label for="">Profile Picture Url</label>
+      <input required type="text" name="profile_img">
+    </p>
 
-    <label for="">Date of Birth</label>
-    <input required type="num" name="date_of_birth" placeholder="ddmmyyyy">
+    <p>
+      <label for="">Date of Birth</label>
+      <input required type="number" min='0' name="date_of_birth" placeholder="ddmmyyyy">
+    </p>
 
-    <label for="">Description</label>
-    <textarea required name="description" rows="1" cols="40"></textarea>
+    <p>
+      <label for="">Description</label>
+      <textarea required name="description" rows="4" cols="40"></textarea>
+    </p>
 
-    <label for="">Book</label>
-    <select required name="book_id">
-      <% for book in @books %>
-      <option value="<%= book.id %>"><%= book.title %></option>
-      <% end %>
-    </select>
+    <p>
+      <label for="">Book</label>
+      <select required name="book_id">
+        <% for book in @books %>
+        <option value="<%= book.id %>"><%= book.title %></option>
+        <% end %>
+      </select>
+    </p>
 
-    <input type="submit" value="Add Author">
+    <p>
+      <input type="submit" value="Add Author">
+    </p>
   </form>
 </div>
