@@ -1,28 +1,41 @@
 <% author = Author.find_by_id(@author_id) %>
 <h1>Sort by Author: <%= author.pretty_name %> page</h1>
 
-<% if @items_by_author != []%>
-  <% for item in @items_by_author %>
-      <% book_id = item.book_id %>
-      <% book = Book.find_by_id(book_id) %>
-      <ul>
-        <li>Book title: <%= book.title %></li>
-        <% if item.check_quantity_low %>
-          <li style="color: red;">Quantity: <%= item.quantity %></li>
-        <% else %>
-          <li>Quantity: <%= item.quantity %></li>
-        <% end %>
-        <li>Buying cost: £<%= item.buying_cost %></li>
-        <li>Selling price: £<%= item.selling_price %></li>
-        <li>Markup value: £<%= item.markup %></li>
-      </ul>
-      <form class="" action="/stock/<%= item.id %>" method="post">
-        <input type="number" name="quantity" value="<%= item.quantity %>">
-        <input type="submit" name="" value="Update Quantity">
-      </form>
-  <% end %>
-<% else %>
-  <h1>There is no items by <%= author.pretty_name %></h1>
-<% end %>
+<table>
+  <thead>
+    <tr>
+      <th>Book Title</th>
+      <th>Quantity</th>
+      <th>Buyin cost</th>
+      <th>Selling price</th>
+      <th>Maruk value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% if @items_by_author != []%>
+      <% for item in @items_by_author %>
+        <% book_id = item.book_id %>
+        <% book = Book.find_by_id(book_id) %>
+        <tr>
+          <th><a href="/books/<%= book.id %>"><%= book.title %></a></th>
+          <% if item.check_quantity_low %>
+          <th style="background-color: red;"><%= item.quantity %></th>
+          <% else %>
+          <th><%= item.quantity %></th>
+          <% end %>
+          <th>£<%= item.buying_cost %></th>
+          <th>£<%= item.selling_price %></th>
+          <th>£<%= item.markup %></th>
+        </tr>
+      <% end %>
+    <% else %>
+      <h1>There is no items by <%= author.pretty_name %></h1>
+    <% end %>
+
+  </tbody>
+
+
+
+</table>
 
 <a href="/stock">Back</a>

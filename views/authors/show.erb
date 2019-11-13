@@ -1,32 +1,40 @@
-<h1>This is a show page for <%= @author.pretty_name %></h1>
+<div class="container">
+  <h1><%= @author.pretty_name %></h1>
 
 
-<ul>
-  <li>Author Name: <%= @author.pretty_name %></li>
-  <li>Date of Birth: <%= @author.date_of_birth %></li>
-  <li>Description: <%= @author.description %></li>
-</ul>
-<img src="<%= @author.profile_img %>" alt="">
+  <ul>
+    <li>Author Name: <%= @author.pretty_name %></li>
+    <li>Date of Birth: <%= @author.date_of_birth %></li>
+    <li>Description: <%= @author.description %></li>
+  </ul>
+  <img src="<%= @author.profile_img %>" alt="">
 
-<p>Books:</p>
+  <p>Books:</p>
 
-    <% if @books.length != 0 %>
-      <% for book in @books %>
-      <ul>
-        <li>Title:<a href="/books/<%= book.id %>"> <%= book.title %></a></li>
-        <li>Genre: <%= book.genre %></li>
-        <form class="" action="publication/<%= @author.id %>/<%= book.id %>/delete" method="post">
-          <input type="submit" name="" value="Delete Book">
-        </form>
-      </ul>
+      <% if @books.length != 0 %>
+        <% for book in @books %>
+        <ul>
+          <li>Title:<a href="/books/<%= book.id %>"> <%= book.title %></a></li>
+          <li>Genre: <%= book.genre %></li>
+          <form class="" action="publication/<%= @author.id %>/<%= book.id %>/delete" method="post">
+            <input type="submit" name="" value="Delete Book">
+          </form>
+        </ul>
+        <% end %>
+      <% else %>
+        <p>No book by this author</p>
       <% end %>
-    <% else %>
-      <p>No book by this author</p>
-    <% end %>
 
+  <div class="search_bar">
+    <div class="btn">
+      <a href="/authors/<%= @author.id %>/edit">Edit Author</a>
+    </div>
+    <div class="btn">
+      <a href="/publications/<%= @author.id %>/add_book">Add Book</a>
+    </div>
+    <form class="" action="/authors/<%= @author.id %>/delete" method="post">
+      <input type="submit" name="" value="Delete Author">
+    </form>
+  </div>
 
-<a href="/authors/<%= @author.id %>/edit">Edit Author</a>
-<a href="/publications/<%= @author.id %>/add_book">Add Book</a>
-<form class="" action="/authors/<%= @author.id %>/delete" method="post">
-  <input type="submit" name="" value="Delete Author">
-</form>
+</div>

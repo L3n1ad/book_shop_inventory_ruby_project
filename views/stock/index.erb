@@ -1,58 +1,66 @@
-<h1>This is the stock index page</h1>
+<div class="container">
+  <h1>Stock list</h1>
+  <div class="search_bar">
+    <a href="/stock/new">Create new item</a>
+    <form action="/stock/sorted_by_author" method="post">
+      <select class="" name="author_id">
+        <% for author in @authors %>
+            <option value="<%= author.id %>"><%= author.pretty_name %></option>
+        <% end %>
+      </select>
+      <input type="submit" name="" value="Search by Author">
+    </form>
+  </div>
 
-<form class="" action="/stock/sorted_by_author" method="post">
-  <select class="" name="author_id">
-    <% for author in @authors %>
-        <option value="<%= author.id %>"><%= author.pretty_name %></option>
-    <% end %>
-  </select>
-  <input type="submit" name="" value="Search by Author">
-</form>
-<a href="/stock/new">Create new item</a>
 
-<table >
-  <tr>
-    <th>Genre</th>
-    <th>Book Title</th>
-    <th>Quantity</th>
-    <th>Buyin cost</th>
-    <th>Selling price</th>
-    <th>Maruk value</th>
-    <th>Change Quantity</th>
-    <th>Delete item</th>
-  </tr>
-    <% for genre in @genres %>
-      <% if @sorted_by_genre[genre.downcase].length != 0 %>
-        <tr>
-          <th><%= genre %></th>
-        </tr>
-            <% for item in @sorted_by_genre[genre.downcase]%>
-              <% book_id = item.book_id %>
-              <% book = Book.find_by_id(book_id) %>
-              <tr>
-              <th></th>
-              <th><a href="/books/<%= book.id %>"><%= book.title %></a></th>
-              <% if item.check_quantity_low %>
-              <th style="background-color: red;"><%= item.quantity %></th>
-              <% else %>
-              <th><%= item.quantity %></th>
+  <table class='stock'>
+    <thead>
+      <tr>
+        <th>Genre</th>
+        <th>Book Title</th>
+        <th>Quantity</th>
+        <th>Buyin cost</th>
+        <th>Selling price</th>
+        <th>Maruk value</th>
+        <th>Change Quantity</th>
+        <th>Delete item</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% for genre in @genres %>
+        <% if @sorted_by_genre[genre.downcase].length != 0 %>
+          <tr>
+            <th class="genre" colspan="8"><%= genre %></th>
+          </tr>
+              <% for item in @sorted_by_genre[genre.downcase]%>
+                <% book_id = item.book_id %>
+                <% book = Book.find_by_id(book_id) %>
+                <tr>
+                  <th></th>
+                  <th><a href="/books/<%= book.id %>"><%= book.title %></a></th>
+                  <% if item.check_quantity_low %>
+                  <th style="background-color: red;"><%= item.quantity %></th>
+                  <% else %>
+                  <th><%= item.quantity %></th>
+                  <% end %>
+                  <th>£<%= item.buying_cost %></th>
+                  <th>£<%= item.selling_price %></th>
+                  <th>£<%= item.markup %></th>
+                  <th>
+                    <form class="" action="/stock/<%= item.id %>" method="post">
+                      <input type="number" name="quantity" value="<%= item.quantity %>">
+                      <input type="submit" name="" value="Update Quantity">
+                    </form>
+                  </th>
+                  <th>
+                    <form class="" action="/stock/<%= item.id %>/delete" method="post">
+                      <input type="submit" name="" value="Delete Item">
+                    </form>
+                  </th>
+                </tr>
               <% end %>
-              <th>£<%= item.buying_cost %></th>
-              <th>£<%= item.selling_price %></th>
-              <th>£<%= item.markup %></th>
-              <th>
-                <form class="" action="/stock/<%= item.id %>" method="post">
-                  <input type="number" name="quantity" value="<%= item.quantity %>">
-                  <input type="submit" name="" value="Update Quantity">
-                </form>
-              </th>
-              <th>
-                <form class="" action="/stock/<%= item.id %>/delete" method="post">
-                  <input type="submit" name="" value="Delete Item">
-                </form>
-              </th>
-              </tr>
-            <% end %>
+        <% end %>
       <% end %>
-    <% end %>
-</table>
+    </tbody>
+  </table>
+</div>

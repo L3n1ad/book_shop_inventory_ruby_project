@@ -1,13 +1,14 @@
+<div class="container">
+  <h1>Add author to <%= @book.title %></h1>
 
-<h1>Add author to <%= @book.title %></h1>
-
-<form class="" action="/publication/<%= @book.id %>" method="post">
-  <select class="" name="author_id">
-    <% for author in @authors %>
-      <% if @book_authors_ids.include?(author.id) == false %>
-        <option value="<%= author.id %>"><%= author.pretty_name %></option>
+  <form class="" action="/publication/<%= @book.id %>" method="post">
+    <select class="" name="author_id">
+      <% for author in @authors %>
+        <% if @book_authors_ids.include?(author.id) == false %>
+          <option value="<%= author.id %>"><%= author.pretty_name %></option>
+        <% end %>
       <% end %>
-    <% end %>
-  </select>
-  <input type="submit" name="" value="Add Author">
-</form>
+    </select>
+    <input type="submit" name="" value="Add Author">
+  </form>
+</div>

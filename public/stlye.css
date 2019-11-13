@@ -1,3 +1,87 @@
 th.books_authors span {
     display: block;
 }
+body {
+  background-color: #2E4057;
+  color: #F6D8AE;
+}
+
+.container {
+    display: block;
+    margin: 20px;
+}
+
+#book_img {
+    max-width: 300px;
+    max-height: 300px;
+    border-radius: 10px;
+}
+
+table, tr, th {
+  border-collapse: collapse;
+  border: 1px solid #FFD84F;
+  min-width: 70px;
+}
+
+th {
+    padding: 2px 8px;
+}
+
+thead {
+    color: #f36464;
+}
+
+.search_bar {
+  display: flex;
+  margin: 20px;
+}
+
+.btn {
+    background: #f36464;
+    border: 0px none;
+    border-radius: 5px 20px;
+    padding: 8px 12px;
+    max-width: fit-content;
+    margin: 10px;
+    display: flex;
+  }
+
+.from {
+  display: flex;
+}
+
+.nav_item {
+    display: flex;
+    border-right: 1px solid black;
+    padding: 0px 15px;
+}
+
+nav.navbar {
+    background: #3d91a5;
+    height: 40px;
+    font-size: 25px;
+    margin: -8px;
+    display: flex;
+}
+
+nav.navbar.a {
+  background: black;
+}
+
+a, a:visited {
+  color: #F6D8AE;
+  text-decoration: none;
+}
+
+a:hover, a:active, a:focus {
+  color: #DA4167;
+}
+
+input[type="number"] {
+  max-width: 40px;
+}
+
+th.genre {
+    text-align: start;
+    background: brown;
+}

@@ -3,14 +3,22 @@
   <head>
     <meta charset="utf-8">
     <title>Book Shop</title>
-    <link rel="stylesheet" href="stlye.css">
+    <link rel="stylesheet" href="../../stlye.css">
   </head>
   <body>
-    <nav>
-      <a href="/">Home page</a>
-      <a href="/books">Books page</a>
-      <a href="/authors">Authors</a>
-      <a href="/stock">Stock</a>
+    <nav class='navbar'>
+      <div class="nav_item">
+        <a href="/">Home page</a>
+      </div>
+      <div class="nav_item">
+        <a href="/books">Books page</a>
+      </div>
+      <div class="nav_item">
+        <a href="/authors">Authors</a>
+      </div>
+      <div class="nav_item">
+        <a href="/stock">Stock</a>
+      </div>
     </nav>
     <%= yield %>
   </body>
